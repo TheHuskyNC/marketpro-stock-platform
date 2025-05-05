@@ -36,6 +36,7 @@ MarketPro is a Flask-based web application that simulates a stock trading platfo
 - `config.py` – Configuration file for database credentials
 - `requirements.txt` – List of Python packages used
 - `README.md` – This file
+- `schema.sql` – SQL script to recreate database and insert sample data
 - `templates/` – HTML pages for login, dashboard, buy/sell, etc.
 
 ## Features
@@ -46,6 +47,22 @@ MarketPro is a Flask-based web application that simulates a stock trading platfo
 - Deposit and withdraw funds
 - Admin dashboard to create stocks
 - Real-time stock price simulation
+
+## Database Setup
+
+This project uses MySQL. To recreate the database structure and sample data:
+
+1. Open MySQL Workbench or your preferred MySQL client.
+2. Connect to your MySQL server.
+3. Run the contents of `schema.sql`:
+   - In MySQL Workbench: Go to File > Open SQL Script, select `schema.sql`, and click the lightning bolt to run it.
+   - Or run it from terminal:
+     ```
+     mysql -u your_username -p < schema.sql
+     ```
+4. Update `config.py` with your own MySQL username, password, and host settings.
+
+This will create the `stock_trading` database and all required tables with sample data.
 
 ## Future Improvements
 
@@ -58,3 +75,4 @@ MarketPro is a Flask-based web application that simulates a stock trading platfo
 
 Corey Saunders  
 Arizona State University – Information Technology
+
