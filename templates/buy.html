@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Stocks - MarketPro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    /* Make sure the html and body take up the full height */
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    /* Main content will expand to fill the available space */
+    main {
+        flex: 1;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">MarketPro- Buy Stocks</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li><a class="nav-link" href="/profile">Profile</a></li>
+                    <li><a class="nav-link" href="/buy">Buy Stocks</a></li>
+                    <li><a class="nav-link" href="/sell">Sell Stocks</a></li>
+                    <li><a class="nav-link" href="/portfolio">View Portfolio</a></li>
+                    <li><a class="nav-link" href="/deposit">Deposit</a></li>
+                    <li><a class="nav-link" href="/withdraw">Withdraw</a></li>
+                    {% if session.get('username') == 'coreys' %}
+                        <li><a class="nav-link" href="/create-stock">Create Stock</a></li>
+                    {% endif %}
+                    <li><a class="nav-link" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h2 class="mb-4">Buy a Stock</h2>
+        <form method="POST" action="/buy">
+            <div class="mb-3">
+                <label for="symbol" class="form-label">Stock Symbol</label>
+                <select class="form-control" id="symbol" name="symbol" required>
+                    {% for stock in stocks %}
+                        <option value="{{ stock[0] }}">{{ stock[0] }} - {{ stock[1] }} ({{ stock[2] }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Buy Stock</button>
+        </form>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 MarketPro Trading Systems. All rights reserved by Corey Saunders and Scott Savage</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
