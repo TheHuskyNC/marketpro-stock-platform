@@ -1,3 +1,6 @@
+Edited 10/16/2025 at 9:47AM (AZ Time) by Corey Saunders for Module 5 Git Lab
+
+
 # MarketPro
 
 MarketPro is a Flask-based web application that simulates a stock trading platform. Users can register, buy and sell stocks, deposit and withdraw funds, and view their portfolio. Admins have access to tools for creating and managing available stocks. The project is built using Python, Flask, and MySQL.
